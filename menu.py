@@ -40,6 +40,8 @@ nuke.knobDefault('Tracker.adjust_for_luminance_changes','1')
 nuke.knobDefault('Transform.shutteroffset', "centered")
 nuke.knobDefault('Crop.crop','0')
 nuke.knobDefault('STMap.uv', "rgb")
+nuke.knobDefault('VectorBlur.uv', "motion")
+
 
 # --------------------------------------------------------------
 #  KEYBOARD SHORTCUTS  :::::::::::::::::::::::::::::::::::::::::
