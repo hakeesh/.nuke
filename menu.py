@@ -39,5 +39,25 @@ nuke.knobDefault('RotoPaint.cliptype','no clip')
 nuke.knobDefault('Tracker.adjust_for_luminance_changes','1')
 
 
+# --------------------------------------------------------------
+#  KEYBOARD SHORTCUTS  :::::::::::::::::::::::::::::::::::::::::
+# --------------------------------------------------------------
 
+
+
+# --------------------------------------------------------------
+#  CUSTOM MENUS : ::::::::::::::::::::::::::::::::::::::::::::::
+# --------------------------------------------------------------
+
+# --- Create Utilities menu & assign items ---
+
+utilitiesMenu = nuke.menu('Nuke').addMenu('Utilities')
+
+utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
+
+
+# --- Create Custom Gizmos menu ---
+# Remember, it won't appear until there's a menu item...
+
+myGizmosMenu = nuke.menu('Nodes').addMenu('myGizmos', icon=dir+"/icons/myGizmos_icon.png")
 
