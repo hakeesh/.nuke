@@ -32,12 +32,14 @@ else:
 #  KNOB DEFAULTS  ::::::::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
-nuke.knobDefault('Tracker4.shutteroffset', "centered")
-nuke.knobDefault('Tracker4.label', "Motion: [value transform]\nRef Frame: [value reference_frame]")
+nuke.knobDefault('Tracker.shutteroffset', "centered")
+nuke.knobDefault('Tracker.label', "Motion: [value transform]\nRef Frame: [value reference_frame]")
 nuke.knobDefault('Roto.cliptype','no clip')
 nuke.knobDefault('RotoPaint.cliptype','no clip')
 nuke.knobDefault('Tracker.adjust_for_luminance_changes','1')
-
+nuke.knobDefault('Transform.shutteroffset', "centered")
+nuke.knobDefault('Crop.crop','0')
+nuke.knobDefault('STMap.uv', "rgb")
 
 # --------------------------------------------------------------
 #  KEYBOARD SHORTCUTS  :::::::::::::::::::::::::::::::::::::::::
