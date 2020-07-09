@@ -48,7 +48,8 @@ nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.fra
 #  KEYBOARD SHORTCUTS  :::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
-
+nuke.menu('Nodes').addCommand("Transform/Tracker", "nuke.createNode('Tracker4')", "ctrl+shift+t", icon="Tracker.png", shortcutContext=2)
+nuke.menu('Nodes').addCommand("Other/Backdrop", "nuke.createNode('BackdropNode')", "shift+b", icon="Backdrop.png", shortcutContext=2)
 
 # --------------------------------------------------------------
 #  CUSTOM MENUS : ::::::::::::::::::::::::::::::::::::::::::::::
