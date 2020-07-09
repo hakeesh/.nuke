@@ -65,4 +65,4 @@ utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
 # Remember, it won't appear until there's a menu item...
 
 myGizmosMenu = nuke.menu('Nodes').addMenu('myGizmos', icon=dir+"/icons/myGizmos_icon.png")
-
+addCommand('Autocrop', 'nukescripts.autocrop()')
