@@ -41,7 +41,7 @@ nuke.knobDefault('Transform.shutteroffset', "centered")
 nuke.knobDefault('Crop.crop','0')
 nuke.knobDefault('STMap.uv', "rgb")
 nuke.knobDefault('VectorBlur2.uv', "motion")
-
+nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
 
 # --------------------------------------------------------------
 #  KEYBOARD SHORTCUTS  :::::::::::::::::::::::::::::::::::::::::
