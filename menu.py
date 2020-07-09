@@ -42,16 +42,21 @@ nuke.knobDefault('Transform.shutteroffset', "centered")
 nuke.knobDefault('Crop.crop','0')
 nuke.knobDefault('STMap.uv', "rgb")
 nuke.knobDefault('VectorBlur2.uv', "motion")
+nuke.knobDefault('ScanlineRender.shutteroffset', "centered")
+nuke.knobDefault('CornerPin2D.shutteroffset', "centered")
 nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
+nuke.addOnUserCreate(lambda:nuke.thisNode()['first_frame'].setValue(nuke.frame()), nodeClass='FrameHold')
 
-# --------------------------------------------------------------
+--------------------------------------------------------------
 #  KEYBOARD SHORTCUTS  :::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
 nuke.menu('Nodes').addCommand("Transform/Tracker", "nuke.createNode('Tracker4')", "ctrl+shift+t", icon="Tracker.png", shortcutContext=2)
 nuke.menu('Nodes').addCommand("Other/Backdrop", "nuke.createNode('BackdropNode')", "shift+b", icon="Backdrop.png", shortcutContext=2)
+nuke.menu('Nodes').addCommand("Time/FrameHold", "nuke.createNode('FrameHold')", "ctrl+shift+f", icon="FrameHold.png", shortcutContext=2) 
+nuke.menu('Nodes').addCommand("Merge/Premult", "nuke.createNode('Premult')", "shift+p", icon="Premult.png", shortcutContext=2)
 
-# --------------------------------------------------------------
+--------------------------------------------------------------
 #  CUSTOM MENUS : ::::::::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
