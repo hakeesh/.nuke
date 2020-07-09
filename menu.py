@@ -10,6 +10,7 @@
 
 import nuke
 import platform
+import nukescripts
 
 # Define where .nuke directory is on each OS's network.
 Win_Dir = 'C:\Users\willh\.nuke'
