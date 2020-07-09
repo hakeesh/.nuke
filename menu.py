@@ -75,4 +75,4 @@ utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
 # Remember, it won't appear until there's a menu item...
 
 myGizmosMenu = nuke.menu('Nodes').addMenu('myGizmos', icon="myGizmos_icon.png")
-addCommand('Autocrop', 'nukescripts.autocrop()')
+myGizmosMenu.addCommand('bm_CameraShake', 'nuke.createNode("bm_CameraShake")', icon="bm_CameraShake_icon.png")
