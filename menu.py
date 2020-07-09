@@ -40,14 +40,18 @@ nuke.knobDefault('RotoPaint.cliptype','no clip')
 nuke.knobDefault('Tracker4.adjust_for_luminance_changes','1')
 nuke.knobDefault('Transform.shutteroffset', "centered")
 nuke.knobDefault('Crop.crop','0')
-nuke.knobDefault('STMap.uv', "rgb")
 nuke.knobDefault('VectorBlur2.uv', "motion")
 nuke.knobDefault('ScanlineRender.shutteroffset', "centered")
 nuke.knobDefault('CornerPin2D.shutteroffset', "centered")
+nuke.knobDefault('TimeBlur.shutteroffset', "centered")
+nuke.knobDefault('TransformMasked.shutteroffset', "centered")
+nuke.knobDefault('MotionBlur2D.shutteroffset', "centered")
+nuke.knobDefault('MotionBlur3D.shutteroffset', "centered")
+nuke.knobDefault('Card3D.shutteroffset', "centered")
 nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
 nuke.addOnUserCreate(lambda:nuke.thisNode()['first_frame'].setValue(nuke.frame()), nodeClass='FrameHold')
 
---------------------------------------------------------------
+# --------------------------------------------------------------
 #  KEYBOARD SHORTCUTS  :::::::::::::::::::::::::::::::::::::::::
 # --------------------------------------------------------------
 
@@ -70,5 +74,5 @@ utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
 # --- Create Custom Gizmos menu ---
 # Remember, it won't appear until there's a menu item...
 
-myGizmosMenu = nuke.menu('Nodes').addMenu('myGizmos', icon=dir+"/icons/myGizmos_icon.png")
+myGizmosMenu = nuke.menu('Nodes').addMenu('myGizmos', icon="myGizmos_icon.png")
 addCommand('Autocrop', 'nukescripts.autocrop()')
