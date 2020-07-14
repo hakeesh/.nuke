@@ -1,7 +1,7 @@
 # --------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.0
-#  Last Updated: July 9th, 2020
+#  Version: 1.0.3
+#  Last Updated: July 14th, 2020
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
@@ -59,6 +59,16 @@ nuke.menu('Nodes').addCommand("Transform/Tracker", "nuke.createNode('Tracker4')"
 nuke.menu('Nodes').addCommand("Other/Backdrop", "nuke.createNode('BackdropNode')", "shift+b", icon="Backdrop.png", shortcutContext=2)
 nuke.menu('Nodes').addCommand("Time/FrameHold", "nuke.createNode('FrameHold')", "ctrl+shift+f", icon="FrameHold.png", shortcutContext=2) 
 nuke.menu('Nodes').addCommand("Merge/Premult", "nuke.createNode('Premult')", "shift+p", icon="Premult.png", shortcutContext=2)
+
+# ----- MERGE NODE SHORTCUTS -----------------------------------
+mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
+
+mergeMenu.addCommand('Stencil', 'nuke.createNode("Merge2", "operation stencil bbox B")', "alt+s", icon="Out.png", shortcutContext=2)
+mergeMenu.addCommand('Mask', 'nuke.createNode("Merge2", "operation mask bbox A")', "alt+m", icon="In.png", shortcutContext=2)
+mergeMenu.addCommand('Plus', 'nuke.createNode("Merge2", "operation plus")', "alt+p", icon="MergePlus.png", shortcutContext=2)
+mergeMenu.addCommand('From', 'nuke.createNode("Merge2", "operation from")', "alt+f", icon="From.png", shortcutContext=2)
+mergeMenu.addCommand('Divide', 'nuke.createNode("Merge2", "operation divide")', "alt+d", icon="MergeDifference.png", shortcutContext=2)
+mergeMenu.addCommand('Multiply', 'nuke.createNode("Merge2", "operation multiply")', "alt+m", icon="MergeMultiply.png", shortcutContext=2)
 
 --------------------------------------------------------------
 #  CUSTOM MENUS : ::::::::::::::::::::::::::::::::::::::::::::::
