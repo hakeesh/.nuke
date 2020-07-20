@@ -1,10 +1,10 @@
 # --------------------------------------------------------------
 #  shuffleShortcuts.py
 #  Version: 1.0.0
-#  Author: Ben McEwan
+#  Author: Will Hackett
 #
-#  Last Modified by: Ben McEwan
-#  Last Updated: May 27th, 2019
+#  Last Modified by: Will Hackett
+#  Last Updated: July 20th, 1985
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
