@@ -1,7 +1,7 @@
 # --------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.3
-#  Last Updated: July 14th, 2020
+#  Version: 1.0.4
+#  Last Updated: July 21th, 2020
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
@@ -11,6 +11,7 @@
 import nuke
 import platform
 import nukescripts
+import shuffleShortcuts
 
 # Define where .nuke directory is on each OS's network.
 Win_Dir = 'C:\Users\willh\.nuke'
