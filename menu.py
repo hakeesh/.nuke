@@ -61,6 +61,12 @@ nuke.menu('Nodes').addCommand("Other/Backdrop", "nuke.createNode('BackdropNode')
 nuke.menu('Nodes').addCommand("Time/FrameHold", "nuke.createNode('FrameHold')", "ctrl+shift+f", icon="FrameHold.png", shortcutContext=2) 
 nuke.menu('Nodes').addCommand("Merge/Premult", "nuke.createNode('Premult')", "shift+p", icon="Premult.png", shortcutContext=2)
 
+# --------------------------------------------------------------
+#  PYTHON SCRIPTS ::::::::::::::::::::::::::::::::::::::::::::::
+# --------------------------------------------------------------
+
+import shuffleShortcuts
+
 # ----- MERGE NODE SHORTCUTS -----------------------------------
 mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
 
