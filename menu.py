@@ -36,6 +36,7 @@ else:
 
 nuke.knobDefault('Tracker4.shutteroffset', "centered")
 nuke.knobDefault('Tracker4.label', "Motion: [value transform]\nRef Frame: [value reference_frame]")
+nuke.knobDefault('Merge2.label',"Mix: [value mix]")
 nuke.knobDefault('Roto.cliptype','no clip')
 nuke.knobDefault('RotoPaint.cliptype','no clip')
 nuke.knobDefault('Tracker4.adjust_for_luminance_changes','1')
