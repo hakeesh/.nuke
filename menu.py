@@ -70,7 +70,6 @@ nuke.menu('Nodes').addCommand("Merge/Premult", "nuke.createNode('Premult')", "sh
 
 import shuffleShortcuts
 import listNavigator
-import filepathLister
 import paste_selected
 
 # ----- MERGE NODE SHORTCUTS -----------------------------------
