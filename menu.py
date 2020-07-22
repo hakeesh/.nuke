@@ -11,7 +11,7 @@
 import nuke
 import platform
 import nukescripts
-import shuffleShortcuts
+
 
 # Define where .nuke directory is on each OS's network.
 Win_Dir = 'C:\Users\willh\.nuke'
@@ -69,6 +69,7 @@ nuke.menu('Nodes').addCommand("Merge/Premult", "nuke.createNode('Premult')", "sh
 # --------------------------------------------------------------
 
 import shuffleShortcuts
+import listNavigator
 
 # ----- MERGE NODE SHORTCUTS -----------------------------------
 mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
