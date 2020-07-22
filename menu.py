@@ -63,6 +63,7 @@ nuke.menu('Nodes').addCommand("Transform/Tracker", "nuke.createNode('Tracker4')"
 nuke.menu('Nodes').addCommand("Other/Backdrop", "nuke.createNode('BackdropNode')", "shift+b", icon="Backdrop.png", shortcutContext=2)
 nuke.menu('Nodes').addCommand("Time/FrameHold", "nuke.createNode('FrameHold')", "ctrl+shift+f", icon="FrameHold.png", shortcutContext=2) 
 nuke.menu('Nodes').addCommand("Merge/Premult", "nuke.createNode('Premult')", "shift+p", icon="Premult.png", shortcutContext=2)
+nuke.menu('Nuke').addCommand('Edit/Paste', 'paste_selected.paste_selected()', 'ctrl+v')
 
 # --------------------------------------------------------------
 #  PYTHON SCRIPTS ::::::::::::::::::::::::::::::::::::::::::::::
