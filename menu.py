@@ -93,6 +93,7 @@ mergeMenu.addCommand('Multiply', 'nuke.createNode("Merge2", "operation multiply"
 utilitiesMenu = nuke.menu('Nuke').addMenu('Utilities')
 
 utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
+utilitiesMenu.addCommand('File Lister', 'filepathLister.file_lister()')
 
 
 # --- Create Custom Gizmos menu ---
