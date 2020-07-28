@@ -1,6 +1,6 @@
 # --------------------------------------------------------------
 #  shortcut_NodeCustomizer.py
-#  Version: 1.0.0
+#  Version: 1.0.1
 #  Author: Will Hackett
 #
 #  Last Modified by: Will Hackett
@@ -60,8 +60,9 @@ def shortcut_NodeCustomizer():
 
     # If the user doesn't enter any data or change anything, pop open a message and exit the window.
     if comment_input == "" and panel.value("Knob") == "None":
-        nuke.message("Please enter a node label")
-        return
+        if panel.value("Change Node Colour?") == False:
+            nuke.message("Please enter a node label")
+        
 
     # If a label is typed but no knob value selected, set the selected node's label to the comment_input.
     elif knob_choice == "None":
