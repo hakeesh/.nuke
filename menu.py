@@ -71,8 +71,10 @@ nuke.menu('Nuke').addCommand('Edit/Paste', 'paste_selected.paste_selected()', 'c
 
 import shuffleShortcuts
 import listNavigator
-import paste_selected
 import filepathLister
+import paste_selected
+# import shortcut_NodeComment
+import shortcut_NodeCustomizer
 
 # ----- MERGE NODE SHORTCUTS -----------------------------------
 mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
