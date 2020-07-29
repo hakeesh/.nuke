@@ -73,8 +73,8 @@ import shuffleShortcuts
 import listNavigator
 import filepathLister
 import paste_selected
-# import shortcut_NodeComment
 import shortcut_NodeCustomizer
+import shortcut_operationSwitcher
 
 # ----- MERGE NODE SHORTCUTS -----------------------------------
 mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
