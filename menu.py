@@ -1,7 +1,7 @@
 # --------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.4
-#  Last Updated: July 21th, 2020
+#  Version: 1.0.6
+#  Last Updated: July 30th, 2020
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
@@ -75,6 +75,7 @@ import filepathLister
 import paste_selected
 import shortcut_NodeCustomizer
 import shortcut_operationSwitcher
+import moblur_controller
 
 # ----- MERGE NODE SHORTCUTS -----------------------------------
 mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
