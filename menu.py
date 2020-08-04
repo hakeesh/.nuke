@@ -76,6 +76,7 @@ import paste_selected
 import shortcut_NodeCustomizer
 import shortcut_operationSwitcher
 import moblur_controller
+import bm_Smoothie
 
 # ----- MERGE NODE SHORTCUTS -----------------------------------
 mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
