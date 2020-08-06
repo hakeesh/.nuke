@@ -115,4 +115,7 @@ myGizmosMenu.addCommand('IBK_Colour_Plus', 'nuke.createNode("IBK_Colour_Plus")',
 myGizmosMenu.addCommand('Match_Black_White', 'nuke.createNode("Match_Black_White")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('Erode_Fine', 'nuke.createNode("Erode_Fine")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('FractalBlur', 'nuke.createNode("FractalBlur")', icon="myGizmos_icon.png")
-
+myGizmosMenu.addCommand('apDespill', 'nuke.createNode("apDespill")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('pProj', 'nuke.createNode("pProj")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('IllegalPixelFiller', 'nuke.createNode("IllegalPixelFiller")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('saturationcheck', 'nuke.createNode("saturationcheck")', icon="myGizmos_icon.png")
