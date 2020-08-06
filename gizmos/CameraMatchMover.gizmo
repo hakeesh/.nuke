@@ -1,0 +1,53 @@
+set cut_paste_input [stack 0]
+version 11.1 v3
+push $cut_paste_input
+Group {
+name CameraMatchMover7
+tile_color 0x2ec358ff
+label "\[value parent.frame]"
+note_font_color 0x3dff73ff
+selected true
+xpos 4358
+ypos 5366
+addUserKnob {20 User}
+addUserKnob {41 first_frame l "reference frame" T FrameHold1.first_frame}
+addUserKnob {7 distance R 0 10000}
+distance 5100
+}
+Input {
+inputs 0
+name camera
+xpos -36
+ypos 324
+number 1
+}
+set Nb056ea80 [stack 0]
+FrameHold {
+first_frame 1064
+name FrameHold1
+xpos -158
+ypos 411
+}
+push $Nb056ea80
+Input {
+inputs 0
+name Image
+selected true
+xpos 88
+ypos 307
+}
+Card3D {
+inputs 3
+translate {0 0 {-parent.distance}}
+uniform_scale {{"\[value \[topnode this.parent.input1].haperture]/\[value \[topnode this.parent.input1].focal] * parent.distance"}}
+name Card3D1
+xpos 32
+ypos 488
+}
+Output {
+name Output1
+xpos 72
+ypos 585
+}
+end_group
+
