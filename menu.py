@@ -110,3 +110,6 @@ myGizmosMenu.addCommand('bm_Lightwrap', 'nuke.createNode("bm_Lightwrap")', icon=
 myGizmosMenu.addCommand('bm_OpticalGlow', 'nuke.createNode("bm_OpticalGlow")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('DASgrain', 'nuke.createNode("DASgrain")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('Edge_Expand', 'nuke.createNode("Edge_Expand")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('PA_EdgeMatte', 'nuke.createNode("PA_EdgeMatte")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('IBK_Colour_Plus', 'nuke.createNode("IBK_Colour_Plus")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('Match_Black_White', 'nuke.createNode("Match_Black_White")', icon="myGizmos_icon.png")
