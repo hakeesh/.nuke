@@ -1,0 +1,1111 @@
+set cut_paste_input [stack 0]
+version 11.1 v3
+push $cut_paste_input
+Group {
+name IBK_Colour_Plus1
+help "This node provides IBKGizmo a colour reference in which to base its keying algorithm on a per pixel basis.\nThe idea is to remove the foreground image and only leave the shades and hues of the original blue/greenscreen.\nAttach the output of this node to the 'c' input of a default IBKGizmo. Attach the input of this node along with the 'fg' input of the IBKGizmo to the original screen.\nPick which colour your screen type is in both nodes and then while viewing the alpha output from the IBKGizmo lower the darks.b (if a bluescreen - adjust darks.g if a greenscreen) in this node \nuntil you see a change in the garbage area of the matte. Once you see a change then you have gone too far -back off a step. If you are still left with discoloured edges you can use the other colours in the lights and darks to eliminate them. Remember the idea is \nto be left with the original shades of the screen and the foreground blacked out. While swapping between viewing the matte from the IBKGizmo and the rgb output of this IBKColour adjust the other colours \nuntil you see a change in the garbage area of the matte. Simple rule of thumb - if you have a light red discoloured area increase the lights.r - if you have a dark green discoloured area increase darks.g. If your screen does not have a very saturated hue you may still be left\n with areas of discolouration after the above process. The 'erode' slider can help with this - while viewing the rgb output adjust the erode until those areas disappear.\nThe 'patch black' slider allows you to fill in the black areas with screen colour. This is not always necessary but if you see blue squares in your composite increase this value and it'll fix it.\nThe above is the only real workflow for this node - working from the top parameter to the bottom parameter- going back to tweak darks/lights with 'erode' and 'patch black' activated isn't really gonna work. "
+tile_color 0x990000
+selected true
+xpos -1111
+ypos 5883
+addUserKnob {20 "" l Parameters}
+addUserKnob {16 Size l size t "size of colour expansion" R 0 100}
+Size 1
+addUserKnob {7 erode t "increase this value if you still see traces of the foreground edge colour in the output" R 0 5}
+erode 8
+addUserKnob {7 multi l "patch black" t "increase this to optionally remove the black from the output.\nThis should only be used once the the above darks/lights have been set" R 0 5}
+multi 12
+addUserKnob {26 ""}
+addUserKnob {20 Help}
+addUserKnob {26 ""}
+addUserKnob {26 how_to l "" +STARTLINE T "Works like the IBK_Colour, howecer you can use a Primatte to generate the matte for the blue/green screen.\nThe standard IBK_Colour will soften your result plus any change in 'size' will soften it more, relative to the value. \n\nIBK_Colour_Plus will keep the sharpness, it will cascade multiple iterations without interfereing with previous iterations, and withoutrendering a new key each time. "}
+addUserKnob {26 ""}
+addUserKnob {26 credit l "" +STARTLINE T "IBK_Colour_Plus - Gabriel Reichle - 2015\n               updated - Dustin Cumming - 2017"}
+}
+Input {
+inputs 0
+name External_Key
+xpos -101
+ypos -11
+number 1
+}
+Invert {
+channels alpha
+name Invert1
+tile_color 0x7aa9ff00
+xpos -101
+ypos 147
+}
+Erode {
+size {{erode}}
+name Erode1
+xpos -101
+ypos 185
+}
+set Ndbe1b880 [stack 0]
+Dot {
+name Dot3
+tile_color 0x9597bf00
+xpos -67
+ypos 3927
+}
+push $Ndbe1b880
+Input {
+inputs 0
+name Input1
+xpos 92
+ypos -12
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+channels alpha
+name Copy3
+tile_color 0x9e3c6300
+xpos 92
+ypos 179
+}
+set N7c233500 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle1
+xpos 360
+ypos 199
+}
+Unpremult {
+name Unpremult12
+xpos 360
+ypos 225
+}
+Dot {
+name Dot43
+selected true
+xpos 1147
+ypos 229
+}
+set N7c232000 [stack 0]
+push $N7c233500
+Premult {
+name Premult3
+xpos 92
+ypos 274
+}
+Unpremult {
+name Unpremult4
+xpos 92
+ypos 300
+}
+Dot {
+name Dot2
+xpos 1027
+ypos 304
+}
+Dot {
+name Dot4
+xpos 1027
+ypos 387
+}
+set Naeda2a80 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy1
+xpos 1113
+ypos 377
+}
+Blur {
+channels rgba
+size 3
+name Blur1
+xpos 1113
+ypos 440
+}
+Unpremult {
+name Unpremult1
+xpos 1113
+ypos 462
+}
+set Naeda2e00 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle2
+xpos 1113
+ypos 650
+}
+Unpremult {
+name Unpremult13
+xpos 1113
+ypos 681
+}
+set Naeda2380 [stack 0]
+push $N7c232000
+Dot {
+name Dot42
+xpos 1269
+ypos 229
+}
+Dot {
+name Dot5
+xpos 1269
+ypos 304
+}
+push $Naeda2e00
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy2
+xpos 1235
+ypos 460
+}
+Invert {
+channels alpha
+name Invert2
+xpos 1235
+ypos 538
+}
+FilterErode {
+channels alpha
+size -1.6
+filter gaussian
+name FilterErode1
+xpos 1235
+ypos 580
+}
+Premult {
+name Premult1
+xpos 1240
+ypos 622
+}
+push $Naeda2a80
+Merge {
+inputs 2
+name Merge1
+xpos 993
+ypos 622
+}
+set N73af8000 [stack 0]
+Dot {
+name Dot6
+xpos 1027
+ypos 648
+}
+Dot {
+name Dot8
+xpos 1027
+ypos 752
+}
+set N76d7ce00 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy4
+xpos 1113
+ypos 742
+}
+Blur {
+channels rgba
+size 6
+name Blur2
+xpos 1113
+ypos 784
+}
+Unpremult {
+name Unpremult2
+xpos 1113
+ypos 810
+}
+set N76d7d180 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle3
+xpos 1113
+ypos 994
+}
+Unpremult {
+name Unpremult14
+xpos 1113
+ypos 1025
+}
+set N75a75180 [stack 0]
+push $Naeda2380
+Dot {
+name Dot7
+xpos 1269
+ypos 685
+}
+push $N76d7d180
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy5
+xpos 1235
+ypos 804
+}
+Invert {
+channels alpha
+name Invert3
+xpos 1235
+ypos 890
+}
+FilterErode {
+channels alpha
+size -1.6
+filter gaussian
+name FilterErode2
+xpos 1235
+ypos 928
+}
+Premult {
+name Premult2
+xpos 1235
+ypos 966
+}
+push $N76d7ce00
+Merge {
+inputs 2
+name Merge2
+xpos 993
+ypos 966
+}
+set N75a74a80 [stack 0]
+Dot {
+name Dot9
+xpos 1027
+ypos 992
+}
+Dot {
+name Dot11
+xpos 1027
+ypos 1075
+}
+set N6d047180 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy6
+xpos 1113
+ypos 1065
+}
+Blur {
+channels rgba
+size 12
+name Blur3
+xpos 1113
+ypos 1128
+}
+Unpremult {
+name Unpremult3
+xpos 1113
+ypos 1154
+}
+set Na42a8e00 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle4
+xpos 1113
+ypos 1333
+}
+Unpremult {
+name Unpremult15
+xpos 1113
+ypos 1366
+}
+set Na42a8380 [stack 0]
+push $N75a75180
+Dot {
+name Dot10
+xpos 1269
+ypos 1029
+}
+push $Na42a8e00
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy7
+xpos 1235
+ypos 1148
+}
+Invert {
+channels alpha
+name Invert4
+xpos 1235
+ypos 1186
+}
+FilterErode {
+channels alpha
+size -3
+filter gaussian
+name FilterErode4
+xpos 1235
+ypos 1224
+}
+Gamma {
+channels alpha
+value 4
+name Gamma1
+xpos 1235
+ypos 1262
+}
+Premult {
+name Premult4
+xpos 1235
+ypos 1310
+}
+push $N6d047180
+Merge {
+inputs 2
+name Merge3
+xpos 993
+ypos 1310
+}
+set N839c0a80 [stack 0]
+Dot {
+name Dot1
+xpos 1027
+ypos 1336
+}
+Dot {
+name Dot13
+xpos 1027
+ypos 1419
+}
+set Nbc4e700 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy8
+xpos 1113
+ypos 1409
+}
+Blur {
+channels rgba
+size 24
+name Blur5
+xpos 1113
+ypos 1472
+}
+Unpremult {
+name Unpremult5
+xpos 1113
+ypos 1498
+}
+set N60055180 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle5
+xpos 1113
+ypos 1683
+}
+Unpremult {
+name Unpremult16
+xpos 1113
+ypos 1709
+}
+set N60054380 [stack 0]
+push $Na42a8380
+Dot {
+name Dot12
+xpos 1269
+ypos 1370
+}
+push $N60055180
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy9
+xpos 1235
+ypos 1492
+}
+Invert {
+channels alpha
+name Invert5
+xpos 1235
+ypos 1530
+}
+FilterErode {
+channels alpha
+size -5
+filter gaussian
+name FilterErode10
+xpos 1235
+ypos 1568
+}
+Gamma {
+channels alpha
+value 4
+name Gamma2
+xpos 1235
+ypos 1606
+}
+Premult {
+name Premult5
+xpos 1235
+ypos 1654
+}
+push $Nbc4e700
+Merge {
+inputs 2
+name Merge4
+xpos 993
+ypos 1654
+}
+set N19433c00 [stack 0]
+Dot {
+name Dot14
+xpos 1027
+ypos 1680
+}
+Dot {
+name Dot18
+xpos 1027
+ypos 1763
+}
+set Nbc43880 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy10
+xpos 1113
+ypos 1753
+}
+Blur {
+channels rgba
+size 48
+name Blur6
+xpos 1113
+ypos 1816
+}
+Unpremult {
+name Unpremult6
+xpos 1113
+ypos 1842
+}
+set Nbc42a80 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle6
+xpos 1113
+ypos 2017
+}
+Unpremult {
+name Unpremult17
+xpos 1113
+ypos 2048
+}
+set Nbc42e00 [stack 0]
+push $N60054380
+Dot {
+name Dot15
+xpos 1269
+ypos 1713
+}
+push $Nbc42a80
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy11
+xpos 1235
+ypos 1836
+}
+Invert {
+channels alpha
+name Invert6
+xpos 1235
+ypos 1874
+}
+FilterErode {
+channels alpha
+size -10
+filter gaussian
+name FilterErode5
+xpos 1235
+ypos 1912
+}
+Gamma {
+channels alpha
+value 4
+name Gamma3
+xpos 1235
+ypos 1950
+}
+Premult {
+name Premult6
+xpos 1235
+ypos 1998
+}
+push $Nbc43880
+Merge {
+inputs 2
+name Merge5
+xpos 993
+ypos 1998
+}
+set N77b87880 [stack 0]
+Dot {
+name Dot19
+xpos 1027
+ypos 2024
+}
+Dot {
+name Dot21
+xpos 1027
+ypos 2107
+}
+set N77b86e00 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy12
+xpos 1113
+ypos 2097
+}
+Blur {
+channels rgba
+size 96
+name Blur7
+xpos 1113
+ypos 2160
+}
+Unpremult {
+name Unpremult7
+xpos 1113
+ypos 2186
+}
+set N772f8000 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle7
+xpos 1113
+ypos 2362
+}
+Unpremult {
+name Unpremult18
+xpos 1113
+ypos 2392
+}
+set N772f9c00 [stack 0]
+push $Nbc42e00
+Dot {
+name Dot20
+xpos 1269
+ypos 2052
+}
+push $N772f8000
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy13
+xpos 1235
+ypos 2180
+}
+Invert {
+channels alpha
+name Invert7
+xpos 1235
+ypos 2218
+}
+FilterErode {
+channels alpha
+size -18
+filter gaussian
+name FilterErode6
+xpos 1235
+ypos 2256
+}
+Gamma {
+channels alpha
+value 4
+name Gamma4
+xpos 1235
+ypos 2294
+}
+Premult {
+name Premult7
+xpos 1235
+ypos 2342
+}
+push $N77b86e00
+Merge {
+inputs 2
+name Merge6
+xpos 993
+ypos 2342
+}
+set Nd0a3a000 [stack 0]
+Dot {
+name Dot22
+xpos 1027
+ypos 2368
+}
+Dot {
+name Dot24
+xpos 1027
+ypos 2451
+}
+set N33389c00 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy14
+xpos 1113
+ypos 2441
+}
+Blur {
+channels rgba
+size 192
+name Blur8
+xpos 1113
+ypos 2504
+}
+Unpremult {
+name Unpremult8
+xpos 1113
+ypos 2530
+}
+set N33388000 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle8
+xpos 1113
+ypos 2711
+}
+Unpremult {
+name Unpremult19
+xpos 1113
+ypos 2741
+}
+set Na3734700 [stack 0]
+push $N772f9c00
+Dot {
+name Dot23
+xpos 1269
+ypos 2396
+}
+push $N33388000
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy15
+xpos 1235
+ypos 2524
+}
+Invert {
+channels alpha
+name Invert8
+xpos 1235
+ypos 2562
+}
+FilterErode {
+channels alpha
+size -25
+filter gaussian
+name FilterErode7
+xpos 1235
+ypos 2600
+}
+Gamma {
+channels alpha
+value 4
+name Gamma5
+xpos 1235
+ypos 2638
+}
+Premult {
+name Premult8
+xpos 1235
+ypos 2686
+}
+push $N33389c00
+Merge {
+inputs 2
+name Merge7
+xpos 993
+ypos 2686
+}
+set Nf2c60e00 [stack 0]
+Dot {
+name Dot25
+xpos 1027
+ypos 2712
+}
+Dot {
+name Dot27
+xpos 1027
+ypos 2795
+}
+set Nf2c60000 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy16
+xpos 1113
+ypos 2785
+}
+Blur {
+channels rgba
+size 384
+name Blur9
+xpos 1113
+ypos 2848
+}
+Unpremult {
+name Unpremult9
+xpos 1113
+ypos 2874
+}
+set N77a6dc00 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle9
+xpos 1113
+ypos 3054
+}
+Unpremult {
+name Unpremult20
+xpos 1113
+ypos 3084
+}
+set N77a6d500 [stack 0]
+push $Na3734700
+Dot {
+name Dot26
+xpos 1269
+ypos 2745
+}
+push $N77a6dc00
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy17
+xpos 1235
+ypos 2868
+}
+Invert {
+channels alpha
+name Invert9
+xpos 1235
+ypos 2906
+}
+FilterErode {
+channels alpha
+size -50
+filter gaussian
+name FilterErode8
+xpos 1235
+ypos 2944
+}
+Gamma {
+channels alpha
+value 4
+name Gamma6
+xpos 1235
+ypos 2982
+}
+Premult {
+name Premult9
+xpos 1235
+ypos 3030
+}
+push $Nf2c60000
+Merge {
+inputs 2
+name Merge8
+xpos 993
+ypos 3030
+}
+set Ne415500 [stack 0]
+Dot {
+name Dot16
+xpos 1027
+ypos 3056
+}
+Dot {
+name Dot37
+xpos 1027
+ypos 3139
+}
+set Ne415c00 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy18
+xpos 1113
+ypos 3129
+}
+Blur {
+channels rgba
+size 768
+name Blur4
+xpos 1113
+ypos 3192
+}
+Unpremult {
+name Unpremult10
+xpos 1113
+ypos 3218
+}
+set N19432380 [stack 0]
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle10
+xpos 1113
+ypos 3406
+}
+Unpremult {
+name Unpremult21
+xpos 1113
+ypos 3436
+}
+set N28ef1180 [stack 0]
+Dot {
+name Dot39
+xpos 1269
+ypos 3440
+}
+push $N28ef1180
+push $N77a6d500
+Dot {
+name Dot17
+xpos 1269
+ypos 3088
+}
+push $N19432380
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy19
+xpos 1235
+ypos 3212
+}
+Invert {
+channels alpha
+name Invert10
+xpos 1235
+ypos 3250
+}
+FilterErode {
+channels alpha
+size -100
+filter gaussian
+name FilterErode3
+xpos 1235
+ypos 3288
+}
+Gamma {
+channels alpha
+value 4
+name Gamma7
+xpos 1235
+ypos 3326
+}
+Premult {
+name Premult10
+xpos 1235
+ypos 3374
+}
+push $Ne415c00
+Merge {
+inputs 2
+name Merge9
+xpos 993
+ypos 3374
+}
+set N87244e00 [stack 0]
+Dot {
+name Dot38
+xpos 1027
+ypos 3400
+}
+Dot {
+name Dot40
+xpos 1027
+ypos 3483
+}
+set Nef88b500 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy20
+xpos 1113
+ypos 3473
+}
+Blur {
+channels rgba
+size 1536
+name Blur10
+xpos 1113
+ypos 3536
+}
+Unpremult {
+name Unpremult11
+xpos 1113
+ypos 3562
+}
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.alpha
+name Copy21
+xpos 1235
+ypos 3556
+}
+Invert {
+channels alpha
+name Invert11
+xpos 1235
+ypos 3594
+}
+FilterErode {
+channels alpha
+size -200
+filter gaussian
+name FilterErode9
+xpos 1235
+ypos 3632
+}
+Gamma {
+channels alpha
+value 4
+name Gamma8
+xpos 1235
+ypos 3670
+}
+Premult {
+name Premult11
+xpos 1235
+ypos 3718
+}
+push $Nef88b500
+Merge {
+inputs 2
+name Merge10
+xpos 993
+ypos 3718
+}
+Dot {
+name Dot45
+xpos 765
+ypos 3722
+}
+push $N87244e00
+Dot {
+name Dot41
+xpos 764
+ypos 3378
+}
+push $Ne415500
+Dot {
+name Dot36
+xpos 764
+ypos 3034
+}
+push $Nf2c60e00
+Dot {
+name Dot35
+xpos 764
+ypos 2690
+}
+push $Nd0a3a000
+Dot {
+name Dot34
+xpos 764
+ypos 2346
+}
+push $N77b87880
+Dot {
+name Dot33
+xpos 764
+ypos 2002
+}
+push $N19433c00
+Dot {
+name Dot32
+xpos 764
+ypos 1658
+}
+push $N839c0a80
+Dot {
+name Dot31
+xpos 764
+ypos 1314
+}
+push $N75a74a80
+Dot {
+name Dot30
+xpos 764
+ypos 970
+}
+push $N73af8000
+Dot {
+name Dot29
+xpos 764
+ypos 626
+}
+push $Naeda2a80
+Dot {
+name Dot28
+xpos 761
+ypos 387
+}
+Switch {
+inputs 11
+which {{multi}}
+name Switch1
+xpos 92
+ypos 3718
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+name ChannelCopy2
+tile_color 0x9e3c6300
+xpos 92
+ypos 3917
+}
+Output {
+name Output1
+xpos 92
+ypos 4005
+}
+end_group
