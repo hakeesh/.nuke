@@ -113,3 +113,5 @@ myGizmosMenu.addCommand('Edge_Expand', 'nuke.createNode("Edge_Expand")', icon="m
 myGizmosMenu.addCommand('PA_EdgeMatte', 'nuke.createNode("PA_EdgeMatte")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('IBK_Colour_Plus', 'nuke.createNode("IBK_Colour_Plus")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('Match_Black_White', 'nuke.createNode("Match_Black_White")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('Erode_Fine', 'nuke.createNode("Erode_Fine")', icon="myGizmos_icon.png")
+
