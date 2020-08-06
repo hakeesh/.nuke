@@ -1,7 +1,7 @@
 # --------------------------------------------------------------
 #  menu.py
-#  Version: 1.0.6
-#  Last Updated: July 30th, 2020
+#  Version: 1.0.7
+#  Last Updated: August 2020
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
@@ -105,3 +105,7 @@ utilitiesMenu.addCommand('File Lister', 'filepathLister.file_lister()')
 
 myGizmosMenu = nuke.menu('Nodes').addMenu('myGizmos', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('bm_CameraShake', 'nuke.createNode("bm_CameraShake")', icon="bm_CameraShake_icon.png")
+myGizmosMenu.addCommand('NODE_DISABLER_v2', 'nuke.createNode("NODE_DISABLER_v2")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('bm_Lightwrap', 'nuke.createNode("bm_Lightwrap")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('bm_OpticalGlow', 'nuke.createNode("bm_OpticalGlow")', icon="myGizmos_icon.png")
+
