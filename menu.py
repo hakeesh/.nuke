@@ -119,3 +119,4 @@ myGizmosMenu.addCommand('apDespill', 'nuke.createNode("apDespill")', icon="myGiz
 myGizmosMenu.addCommand('pProj', 'nuke.createNode("pProj")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('IllegalPixelFiller', 'nuke.createNode("IllegalPixelFiller")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('saturationcheck', 'nuke.createNode("saturationcheck")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('CameraMatchMover', 'nuke.createNode("CameraMatchMover")', icon="myGizmos_icon.png")
