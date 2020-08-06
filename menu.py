@@ -108,4 +108,5 @@ myGizmosMenu.addCommand('bm_CameraShake', 'nuke.createNode("bm_CameraShake")', i
 myGizmosMenu.addCommand('NODE_DISABLER_v2', 'nuke.createNode("NODE_DISABLER_v2")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('bm_Lightwrap', 'nuke.createNode("bm_Lightwrap")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('bm_OpticalGlow', 'nuke.createNode("bm_OpticalGlow")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('DASgrain', 'nuke.createNode("DASgrain")', icon="myGizmos_icon.png")
 
