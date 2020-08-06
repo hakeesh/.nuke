@@ -1,0 +1,78 @@
+set cut_paste_input [stack 0]
+version 12.1 v2
+push $cut_paste_input
+Group {
+ name IllegalPixelFiller2
+ help "v1.1 - trip\n31.07.17"
+ knobChanged "n = nuke.thisNode()\nif n\['negative'].value() == 1:\n    n\['black_value'].setVisible(True)\nelse:\n    n\['black_value'].setVisible(False)\nif n\['inf'].value() == 1:\n    n\['clip'].setVisible(True)\nelse:\n    n\['clip'].setVisible(False)"
+ tile_color 0x7aa9ffff
+ selected true
+ xpos -84
+ ypos 314
+ addUserKnob {20 User}
+ addUserKnob {26 note01 l "Select everything" T "you want to kill:"}
+ addUserKnob {6 nan +STARTLINE}
+ addUserKnob {6 negative +STARTLINE}
+ negative true
+ addUserKnob {18 black_value l "black value"}
+ black_value {0 0 0}
+ addUserKnob {6 black_value_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {6 inf +STARTLINE}
+ addUserKnob {7 clip +HIDDEN R 0 100}
+ clip 55
+ addUserKnob {26 ""}
+ addUserKnob {26 credits l "" +STARTLINE T "v1.1 - trip\n31.07.17"}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 394
+  ypos -579
+ }
+ Expression {
+  expr0 isnan(r)?((isnan(r(x-1,y))?0:r(x-1,y))+(isnan(r(x-1,y-1))?0:r(x-1,y-1))+(isnan(r(x+1,y))?0:r(x+1,y))+(isnan(r(x+1,y+1))?0:r(x+1,y+1)))/4:r
+  expr1 isnan(g)?((isnan(g(x-1,y))?0:g(x-1,y))+(isnan(g(x-1,y-1))?0:g(x-1,y-1))+(isnan(g(x+1,y))?0:g(x+1,y))+(isnan(g(x+1,y+1))?0:g(x+1,y+1)))/4:g
+  expr2 isnan(b)?((isnan(b(x-1,y))?0:b(x-1,y))+(isnan(b(x-1,y-1))?0:b(x-1,y-1))+(isnan(b(x+1,y))?0:b(x+1,y))+(isnan(b(x+1,y+1))?0:b(x+1,y+1)))/4:b
+  name NanFix
+  tile_color 0x7aa9ffff
+  selected true
+  xpos 394
+  ypos -465
+  disable {{!parent.nan}}
+ }
+ Expression {
+  temp_name0 r0
+  temp_expr0 parent.black_value.r
+  temp_name1 g0
+  temp_expr1 parent.black_value.g
+  temp_name2 b0
+  temp_expr2 parent.black_value.b
+  expr0 r<0?(clamp(r(x-1,y),r0,1)+clamp(r(x+1,y),r0,1)+clamp(r(x,y-1),r0,1)+clamp(r(x,y+1),r0,1))/4:r
+  expr1 g<0?(clamp(g(x-1,y),g0,1)+clamp(g(x+1,y),g0,1)+clamp(g(x,y-1),g0,1)+clamp(g(x,y+1),g0,1))/4:g
+  expr2 b<0?(clamp(b(x-1,y),b0,1)+clamp(b(x+1,y),b0,1)+clamp(b(x,y-1),b0,1)+clamp(b(x,y+1),b0,1))/4:b
+  name NegFix
+  tile_color 0x7aa9ffff
+  selected true
+  xpos 394
+  ypos -439
+  disable {{!parent.negative}}
+ }
+ Expression {
+  temp_name0 clip
+  temp_expr0 parent.clip
+  expr0 r==inf?(clamp(r(x-1,y),0,clip)+clamp(r(x+1,y),0,clip)+clamp(r(x,y-1),0,clip)+clamp(r(x,y+1),0,clip))/4:r
+  expr1 g==inf?(clamp(g(x-1,y),0,clip)+clamp(g(x+1,y),0,clip)+clamp(g(x,y-1),0,clip)+clamp(g(x,y+1),0,clip))/4:g
+  expr2 b==inf?(clamp(b(x-1,y),0,clip)+clamp(b(x+1,y),0,clip)+clamp(b(x,y-1),0,clip)+clamp(b(x,y+1),0,clip))/4:b
+  name InfFix
+  tile_color 0x7aa9ffff
+  selected true
+  xpos 394
+  ypos -413
+  disable {{!parent.inf}}
+ }
+ Output {
+  name Output1
+  xpos 394
+  ypos -301
+ }
+end_group
