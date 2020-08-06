@@ -109,4 +109,4 @@ myGizmosMenu.addCommand('NODE_DISABLER_v2', 'nuke.createNode("NODE_DISABLER_v2")
 myGizmosMenu.addCommand('bm_Lightwrap', 'nuke.createNode("bm_Lightwrap")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('bm_OpticalGlow', 'nuke.createNode("bm_OpticalGlow")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('DASgrain', 'nuke.createNode("DASgrain")', icon="myGizmos_icon.png")
-
+myGizmosMenu.addCommand('Edge_Expand', 'nuke.createNode("Edge_Expand")', icon="myGizmos_icon.png")
