@@ -1,0 +1,14 @@
+set cut_paste_input [stack 0]
+version 11.2 v3
+push $cut_paste_input
+ZDepthEditor {
+ name ZDepthEditor9
+ selected true
+ xpos 578
+ ypos 679
+ output normalized
+ key 0
+ max_distance 28382.75
+ input_depth depth.Z
+ embed_depth depth.Z
+}
