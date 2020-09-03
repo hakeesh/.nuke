@@ -86,18 +86,7 @@ mergeMenu.addCommand('Mask', 'nuke.createNode("Merge2", "operation mask bbox A")
 mergeMenu.addCommand('Plus', 'nuke.createNode("Merge2", "operation plus")', "alt+p", icon="MergePlus.png", shortcutContext=2)
 mergeMenu.addCommand('From', 'nuke.createNode("Merge2", "operation from")', "alt+f", icon="From.png", shortcutContext=2)
 mergeMenu.addCommand('Divide', 'nuke.createNode("Merge2", "operation divide")', "alt+d", icon="MergeDifference.png", shortcutContext=2)
-mergeMenu.addCommand('Multiply', 'nuke.createNode("Merge2", "operation multiply")', "alt+m", icon="MergeMultiply.png", shortcutContext=2)
-
---------------------------------------------------------------
-#  CUSTOM MENUS : ::::::::::::::::::::::::::::::::::::::::::::::
-# --------------------------------------------------------------
-
-# --- Create Utilities menu & assign items ---
-
-utilitiesMenu = nuke.menu('Nuke').addMenu('Utilities')
-
-utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
-utilitiesMenu.addCommand('File Lister', 'filepathLister.file_lister()')
+mergeMenu.addCommand('Multiply', 'nuke.createNode("Merge2", "operation multiply")', "shift+alt+m", icon="MergeMultiply.png", shortcutContext=2)
 
 
 # --- Create Custom Gizmos menu ---
