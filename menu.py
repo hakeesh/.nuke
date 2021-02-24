@@ -112,3 +112,4 @@ myGizmosMenu.addCommand('IllegalPixelFiller', 'nuke.createNode("IllegalPixelFill
 myGizmosMenu.addCommand('saturationcheck', 'nuke.createNode("saturationcheck")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('CameraMatchMover', 'nuke.createNode("CameraMatchMover")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('Edge', 'nuke.createNode("Edge")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('Reconcile3Dfast', 'nuke.createNode("Reconcile3Dfast")', icon="myGizmos_icon.png")
