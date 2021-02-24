@@ -109,4 +109,4 @@ myGizmosMenu.addCommand('pProj', 'nuke.createNode("pProj")', icon="myGizmos_icon
 myGizmosMenu.addCommand('IllegalPixelFiller', 'nuke.createNode("IllegalPixelFiller")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('saturationcheck', 'nuke.createNode("saturationcheck")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('CameraMatchMover', 'nuke.createNode("CameraMatchMover")', icon="myGizmos_icon.png")
-myGizmosMenu.addCommand('Edge', 'nuke.createNode("Ege")', icon="myGizmos_icon.png")
+myGizmosMenu.addCommand('Edge', 'nuke.createNode("Edge")', icon="myGizmos_icon.png")
