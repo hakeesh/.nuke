@@ -77,6 +77,8 @@ import shortcut_NodeCustomizer
 import shortcut_operationSwitcher
 import moblur_controller
 import keylightdespill
+import autoBackdropBW
+
 
 # ----- MERGE NODE SHORTCUTS -----------------------------------
 mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
